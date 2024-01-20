@@ -10,34 +10,35 @@ function AddCourse() {
     const [price, setPrice] = React.useState('');
     const [imageLink, setImageLink] = React.useState('');
 
-    async function submitCourse(){
-        try{
-            const response = await fetch("http://localhost:3000/admin/courses",{
-                method:"POST",
-                headers:{
-                    "Content-Type": "application/json",
-                    "Authorization":"Bearer " + localStorage.getItem("token")
-                },
-                body: JSON.stringify({
-                    "title": title,
-                    "description": description,
-                    "price": price,
-                    "imageLink": imageLink,
-                    "published": published
-                })
-            })
-            const result = await response.json();
-            if (result) {
-                console.log(result);
-            }else{
-                console.error("error in fetch result")
-            }
-        }catch(error){
-            console.log(error);
-        }
-        }
+    function submitCourse() {
+        async function createCourse() {
+            try {
+                const response = await fetch("http://localhost:3000/admin/courses", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + localStorage.getItem("token"),
 
- 
+                    },
+                    body: JSON.stringify({
+                        "title": title,
+                        "description": description,
+                        "price": price,
+                        "imageLink": imageLink,
+                        "published": published,
+                    })
+
+                });
+                const result = await response.json();
+                console.log(result);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        createCourse();
+    }
+
+
     return <>
         <div style={{
             display: "flex",
@@ -73,12 +74,12 @@ function AddCourse() {
                     display: "flex",
                     flexDirection: "row"
                 }}>
-                    <TextField id="outlined-basic" onChange={(e) =>{
+                    <TextField id="outlined-basic" onChange={(e) => {
                         setTitle(e.target.value);
                     }} label="TITLE OF COURSE" variant="outlined" sx={{
                         width: "350px",
                     }} />
-                    <TextField id="outlined-basic" onChange={(e) =>{
+                    <TextField id="outlined-basic" onChange={(e) => {
                         setPublished(e.target.value);
                     }} label="PUBLISHED" variant="outlined" sx={{
                         width: "250px",
@@ -87,7 +88,7 @@ function AddCourse() {
                 <div>
                     <TextField
                         id="outlined-multiline-static"
-                        onChange={(e) =>{
+                        onChange={(e) => {
                             setDescription(e.target.value);
                         }}
                         label="DESCRIPTION"
@@ -100,27 +101,27 @@ function AddCourse() {
                     />
                 </div>
                 <div>
-                    <TextField id="outlined-basic" onChange={(e) =>{
+                    <TextField id="outlined-basic" onChange={(e) => {
                         setPrice(e.target.value)
                     }} label="price" variant="outlined" sx={{
                         width: "250px",
                     }} />
-                    <TextField id="outlined-basic" onChange={(e)=>{
+                    <TextField id="outlined-basic" onChange={(e) => {
                         setImageLink(e.target.value);
                     }} label="imageLink" variant="outlined" sx={{
                         width: "250px",
-                        marginLeft:"100px"
+                        marginLeft: "100px"
                     }} />
                 </div>
                 <div>
-                    
-                <Button style={{
-                    width:"300px",
-                    marginLeft:"150px"
-                }} variant="contained" onClick={()=>{
-                    submitCourse();
-                }}>submit</Button>
-                
+
+                    <Button style={{
+                        width: "300px",
+                        marginLeft: "150px"
+                    }} variant="contained" onClick={() => {
+                        submitCourse();
+                    }}>submit</Button>
+
                 </div>
 
 

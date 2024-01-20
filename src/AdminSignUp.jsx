@@ -2,18 +2,20 @@ import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function AdminSignUp() {
     const [email, setEmail] = React.useState('');
     const [password,setPassword] = React.useState('');
-
+    const navigate = useNavigate();
     async function submitAction (){
         try{
             const response = await fetch('http://localhost:3000/admin/signup',
             {
                 method:"POST",
                 headers:{
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization":"Bearer " + localStorage.getItem("token")
                 },
                 body:JSON.stringify({
                     username:email,
@@ -24,6 +26,7 @@ function AdminSignUp() {
             );
             const result = await response.json();
             localStorage.setItem("token",result.token);
+            navigate("/login")
         }
         catch(error){
             console.log(error);

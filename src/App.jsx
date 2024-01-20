@@ -7,6 +7,7 @@ import AdminSignUp from './AdminSignUp'
 import MyAppBar from './MyAppBar'
 import AdminLogIn from './AdminLogIn';
 import AddCourse from './AddCourse';
+import Courses from './Courses';
 
 
 
@@ -27,6 +28,7 @@ function App() {
       <MyAppBar />
         <Routes>
           <Route path={"/addcourse"} element ={<AddCourse />} />
+          <Route path={"/courses"} element = {<Courses />} />
           <Route path={"/signup"} element ={<AdminSignUp />} />
           <Route path= {"/login"} element = {<AdminLogIn/>} />
         </Routes>

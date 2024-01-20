@@ -2,10 +2,12 @@ import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function AdminLogIn() {
     const [email, setEmail] = React.useState('');
     const [password,setPassword] = React.useState('');
+    const navigate = useNavigate();
 
     async function submitAction(){
         try{
@@ -13,6 +15,7 @@ function AdminLogIn() {
                 method:"POST",
                 headers:{
                     "Content-Type": "application/json",
+                    // "Authorization":"Bearer " + localStorage.getItem("token"),
                     "username": email,
                     "password": password
                 },
@@ -20,16 +23,20 @@ function AdminLogIn() {
             });
             const data = await response.json();
             localStorage.setItem("token",data.token);
+            navigate("/courses")
+
         }
         catch(error)
         {
             console.log(error)
         }
+        
     }
     
 
 
     return <>
+    <div>
         <div style={{
             display: "flex",
             justifyContent: 'center',
@@ -85,6 +92,7 @@ function AdminLogIn() {
                     submitAction();
                 }}>submit</Button>
             </Card>
+        </div>
         </div>
     </>
 }
