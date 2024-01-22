@@ -25,7 +25,7 @@ function App() {
     }}>
      
       <Router>
-      <MyAppBar />
+      {/* <MyAppBar /> */}
         <Routes>
           <Route path={"/addcourse"} element ={<AddCourse />} />
           <Route path={"/courses"} element = {<Courses />} />

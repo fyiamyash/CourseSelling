@@ -1,6 +1,7 @@
 import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import MyAppBar from './MyAppBar'
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,6 +37,7 @@ function AdminLogIn() {
 
 
     return <>
+    <MyAppBar />
     <div>
         <div style={{
             display: "flex",

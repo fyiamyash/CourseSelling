@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 
 //
 import { useEffect, useState } from "react";
+import MyAppBarLoggedIn from './MyAppBarLoggedIn';
 
 function Courses()
 {
@@ -57,6 +58,7 @@ function Courses()
         </>
     }
     return <>
+    <MyAppBarLoggedIn />
       <div style={{
         padding:"20px",
         display:"flex",

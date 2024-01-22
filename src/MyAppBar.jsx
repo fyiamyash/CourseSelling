@@ -33,26 +33,6 @@ function MyAppBar()
       }
     }
   }, []);   
-  if(currentEmail)
-  {
-    return <>
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            COURSES
-          </Typography>
-    
-         <Button color="inherit" onClick={() =>{
-          localStorage.setItem("token",null);
-          navigate("/login");
-          //  window.location.href = 'http://localhost:5173/login';
-         }}>Logout</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
-    </>
-  }
     return <>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">

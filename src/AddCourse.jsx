@@ -1,9 +1,10 @@
 import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { Navigate, useNavigate } from 'react-router-dom';
 import React from 'react';
 function AddCourse() {
-
+    const navigate = useNavigate();
     const [description, setDescription] = React.useState('');
     const [published, setPublished] = React.useState('');
     const [title, setTitle] = React.useState('');
@@ -36,6 +37,8 @@ function AddCourse() {
             }
         }
         createCourse();
+        navigate("/courses");
+
     }
 
 
