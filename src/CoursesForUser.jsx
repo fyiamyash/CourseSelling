@@ -27,6 +27,23 @@ function CoursesForUser()
         }
         fetchCourses();
       },[]);
+      async function  purchase(courseId)
+      { 
+        try{
+          const response2 = await fetch("http://localhost:3000/users/courses/" + courseId,{
+            method:"POST",
+            headers:{
+              "Content-Type": "application/json",
+              "Authorization":"Bearer " + localStorage.getItem("token")
+          }
+          });
+          const result2 = await response2.json();
+          console.log(result2);
+        }catch(error)
+        {
+          console.log(error)
+        }
+      }
     function CardCompCourse(props){
         return<>
         <Card sx={{ width:300,
@@ -46,7 +63,9 @@ function CoursesForUser()
       </CardContent>
       <CardActions>
         <Button size="small">${props.course.price}</Button>
-        <Button size="small">buy</Button>
+        <Button size="small" onClick={()=>{
+          purchase(props.course.id);
+        }}>buy</Button>
       </CardActions>
     </Card>
         </>

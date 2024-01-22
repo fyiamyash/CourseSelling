@@ -30,6 +30,8 @@ function Courses()
         }
         fetchCourses();
       },[]);
+
+    
     function CardCompCourse(props){
         return<>
         <Card sx={{ width:300,
