@@ -48,12 +48,12 @@ function CoursesForUser()
         return<>
         <Card sx={{ width:300,
         margin: '0 10px 20px 0',
-       }} key={props.course.id}>
+       }} key={props.course.uniqueKey} >
       <CardMedia
         sx={{ height: 80}}
         image= {props.course.imageLink}
       />
-      <CardContent>
+      <CardContent key={props.course.id}>
         <Typography gutterBottom variant="h5" component="div">
          {props.course.title}
         </Typography>

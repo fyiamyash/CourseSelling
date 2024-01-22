@@ -8,6 +8,7 @@ import Courses from './Courses';
 import UserSignUp from './UserSignUp';
 import UserLogIn from './UserLogIn';
 import CoursesForUser from './CoursesForUser';
+import PurchsedCourses from './PurchasedCourses';
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path={"/userSignUp"} element ={<UserSignUp />} />
           <Route path={"/userLogIn"} element = {<UserLogIn />} />
           <Route path={"/userCourses"} element = {<CoursesForUser />} />
+          <Route path ={"/purchasedCourses"} element = {<PurchsedCourses />} />
         </Routes>
       </Router>
     </div>
