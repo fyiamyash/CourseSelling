@@ -2,6 +2,7 @@ import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import React from 'react';
+import UserAppBar from './UserAppBar';
 import { useNavigate } from 'react-router-dom';
 function UserLogIn()
 {
@@ -40,6 +41,7 @@ function UserLogIn()
 
 
     return <>
+    <UserAppBar />
     <div>
         <div style={{
             display: "flex",

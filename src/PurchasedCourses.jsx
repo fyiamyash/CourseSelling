@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from "react";
+import CustomUserAppBar from './CustomUserAppBar';
   function PurchsedCourses()
   {
     const [purchasedCourses, setPurchasedCourses] = useState([]);
@@ -29,6 +30,7 @@ import { useEffect, useState } from "react";
     },[])
 
     return<>
+    <CustomUserAppBar />
         <div style={{
         padding:"20px",
         display:"flex",

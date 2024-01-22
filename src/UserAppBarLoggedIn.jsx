@@ -6,11 +6,12 @@ import Button from '@mui/material/Button';
 import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-function MyAppBarLoggedIn() {
+function UserAppBarLoggegIn(){
+
     const navigate = useNavigate();
     const [currentEmail, setCurrentEmail] = useState('');
     useEffect(()=>{
-     fetch("http://localhost:3000/admin/me",{
+     fetch("http://localhost:3000/user/me",{
         method:"GET",
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("token")
@@ -34,8 +35,8 @@ function MyAppBarLoggedIn() {
                         </Typography>
 
                         <Button color="inherit" onClick={() => {
-                            navigate("/addcourse");
-                        }}>Add Course</Button>
+                            navigate("/purchasedCourses");
+                        }}>My Course</Button>
 
                         <Button color="inherit" onClick={() => {
                             localStorage.setItem("token", null);
@@ -47,6 +48,7 @@ function MyAppBarLoggedIn() {
             </Box>
         </>
     }
+
 }
 
-export default MyAppBarLoggedIn;
+export default UserAppBarLoggegIn;

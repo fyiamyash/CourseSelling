@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserAppBar from './UserAppBar';
 
 function UserSignUp()
 {
@@ -36,6 +37,7 @@ function UserSignUp()
 
 
     return <>
+    <UserAppBar />
         <div style={{
             display: "flex",
             justifyContent: 'center',
@@ -44,7 +46,7 @@ function UserSignUp()
             <h3 style={{
                 fontFamily: 'Arial',
                 fontSize: '30px'
-            }}>Welcome to the course website</h3>
+            }}>Welcome to the course website Sign Up Below</h3>
         </div>
         <div style={{
             display: "flex",

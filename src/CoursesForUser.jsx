@@ -5,9 +5,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from "react";
+import CustomUserAppBar from './CustomUserAppBar';
+import Alert from '@mui/material/Alert';
+
 function CoursesForUser()
 {
     const [courses, setCourses] = useState([]);
+    const [showAlert, setShowAlert] = useState(false);
 
     useEffect(()=>{
         async function fetchCourses(){
@@ -38,7 +42,7 @@ function CoursesForUser()
           }
           });
           const result2 = await response2.json();
-          console.log(result2);
+          setShowAlert(true);
         }catch(error)
         {
           console.log(error)
@@ -71,6 +75,7 @@ function CoursesForUser()
         </>
     }
     return <>
+    <CustomUserAppBar />
       <div style={{
         padding:"20px",
         display:"flex",
@@ -84,6 +89,12 @@ function CoursesForUser()
         })}
       
     </div>
+      {/* Alert component */}
+      {showAlert && (
+            <Alert severity="success" onClose={() => setShowAlert(false)}>
+                Purchase successful!
+            </Alert>
+        )}
    </>
 
 }
