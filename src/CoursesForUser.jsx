@@ -80,9 +80,10 @@ function CoursesForUser()
         padding:"20px",
         display:"flex",
         flexWrap:"wrap",
-        justifyContent:"space-between",
+        justifyContent:"centre",
         maxHeight: "500px", 
-        overflowX: "auto",
+        overflowY: "auto",
+        marginLeft:"60px"
       }}>
         {courses.map(course =>{
            return<CardCompCourse key={course.uniqueKey}  course ={course} />

@@ -28,16 +28,17 @@ import CustomUserAppBar from './CustomUserAppBar';
         }
         fetchPurchasedCourse();
     },[])
-
+    if(purchasedCourses){
     return<>
     <CustomUserAppBar />
         <div style={{
         padding:"20px",
         display:"flex",
         flexWrap:"wrap",
-        justifyContent:"space-between",
+        justifyContent:"centre",
         maxHeight: "500px", 
-        overflowX: "auto",
+        overflowY: "auto",
+        marginLeft:"60px"
       }}>
         {purchasedCourses.map(course =>{
            return<CardCompCourse key={course.uniqueKey}  course ={course} />
@@ -45,6 +46,20 @@ import CustomUserAppBar from './CustomUserAppBar';
       
     </div>
     </>
+    }else{
+      return <>
+      <CustomUserAppBar />
+      <div style={{
+  border: "0px solid",
+  marginLeft:"550px",
+  
+  width: "50%",
+  padding: "60px"
+}}>
+      <h3 style={{marginTop:"200px",}}> no courses you are poor!</h3>
+      </div>
+      </>
+    }
   }
   function CardCompCourse(props){
     return<>
